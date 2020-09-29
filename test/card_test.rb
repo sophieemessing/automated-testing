@@ -24,33 +24,47 @@ describe Card do
   describe "Testing to_s" do
 
     it "to_s returns a readable String value logically for values 2-10" do
-      # Test to ensure that to_s works for cards values 2-10
-      # for example:  "2 of diamonds"
+
+      card = Card.new(2, :diamonds)
+      expect(card.to_s).must_equal "2 of diamonds"
+
+      card = Card.new(12, :hearts)
+      expect(card.to_s).must_equal "Queen of hearts"
     end
 
     it "to_s returns a readable String value for Ace, Jack, Queen, King" do
-      # Test to ensure that to_s works for cards values 1, and 11-13
-      # For example: "Queen of hearts"
-      # The current implementation of to_s does not address this feature
-      # Write the test, see it fail, then modify to_s to make it pass!
-      # (Consider writing a helper method!)
-      #
-      # For reference:
-      #  1: Ace
-      #  11: Jack
-      #  12: Queen
-      #  13: King
+
+      card = Card.new(1, :spades)
+      expect(card.to_s).must_equal "Ace of spades"
+
+      card = Card.new(13, :clubs)
+      expect(card.to_s).must_equal "King of clubs"
     end
   end
 
   describe "Reader methods" do
 
     it "Can retrieve the value of the card using a `.value`." do
-      # ensure that `.value works as expected`
+
+      card = Card.new(9, :hearts)
+      expect (card.value).must_be_kind_of Integer
+      expect(card.value).must_equal 9
+
+      card = Card.new(12, :diamonds)
+      expect (card.value).must_be_kind_of Symbol
+      expect(card.value).must_equal :Queen
+
     end
 
     it "Can retrieve the value of the card using a `.suit`." do
-      # ensure that `.suit works as expected returning the symbol of the suit`
+
+      card = Card.new(9, :hearts)
+      expect (card.suit).must_be_kind_of Symbol
+      expect(card.suit).must_equal :hearts
+
+      card = Card.new(12, :diamonds)
+      expect (card.suit).must_be_kind_of Symbol
+      expect(card.suit).must_equal :diamonds
 
     end
   end
