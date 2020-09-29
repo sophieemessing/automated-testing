@@ -11,6 +11,9 @@ describe "constructor" do
 end
 
 describe "draw method" do
+  before do
+    @deck = Deck.new
+  end
   it "must respond to draw method" do
     expect(@deck).must_respond_to :draw
   end
@@ -28,6 +31,9 @@ describe "draw method" do
 end
 
 describe "shuffle method" do
+  before do
+    @deck = Deck.new
+  end
   it "responds to shuffle" do
     expect(@deck).must_respond_to :shuffle
   end
